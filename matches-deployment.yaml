@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matches-deployment
+spec:
+  selector:
+    matchLabels:
+      app: matches
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: matches
+    spec:
+      containers: 
+        - name: matches-container
+          image: pnoulis04/football-matches:v1.0
+          ports:
+            - containerPort: 5000
+  
